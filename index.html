@@ -1,0 +1,75 @@
+<style>
+    *{
+        padding: 0;
+        font-family: 'Josefin Sans', sans-serif;
+        margin: 0;
+    }
+</style>
+<script src="https://kit.fontawesome.com/8aa17a250d.js" crossorigin="anonymous"></script>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@350&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="mobile.css">
+<link rel="stylesheet" type="text/css" href="style.css">
+<div class="header">
+    <img src="https://i.ibb.co/2S955BS/icon.png" class="icon" onclick="icon()">
+    <div class="text-animation">
+    <span class="text">Hello</span>
+    <span class="text">Dear</span>
+    <span class="text">Gamers!</span>
+  </div>
+</div>
+<div class="content" id="content1" style="display: block;">
+
+</div>
+<div class="content" id="content2">Content 2</div>
+<div class="content" id="content3">
+    <h3 class="upload-headtxt">Publish Your:-</h3>
+    <div class="upload-nav">
+    <a href="#" class="upload-btn">Post</a><br>
+    <a href="#" class="upload-btn">Video</a><br>
+    <a href="#" class="upload-btn">Game</a><br>
+    <a href="#" class="upload-btn">Tounament</a><br>
+</div>
+</div>
+<div class="content" id="content4">Content 4</div>
+<div class="content" id="content5">Content 5</div>
+<footer class="nav">
+    <button class="btn" onclick="showDiv(1)"><i class="fa-solid fa-house"></i></button>
+    <button class="btn" onclick="showDiv(2)"><i class="fa-solid fa-video"></i></button>
+    <button class="upload" onclick="showDiv(3)"><i class="fa-solid fa-upload"></i></button>
+    <button class="btn" onclick="showDiv(4)"><i class="fa-solid fa-gamepad"></i></button>
+    <button class="btn" onclick="showDiv(5)"><i class="fa-solid fa-ranking-star"></i></button></footer>
+<script>
+    function icon(){
+        location.reload()
+    }
+    document.addEventListener("DOMContentLoaded", function() {
+  const texts = document.querySelectorAll(".text");
+  let index = 0;
+
+  function showNextText() {
+    texts.forEach(text => text.classList.remove("visible"));
+    texts[index].classList.add("visible");
+    index++;
+    if (index >= texts.length) {
+      index = 0; 
+    }
+  }
+  showNextText();
+  const interval = setInterval(showNextText, 2000);});</script>
+<script>
+  function showDiv(divNum) {
+    // Hide all content divs
+    var contents = document.querySelectorAll('.content');
+    contents.forEach(function(content) {
+      content.style.display = 'none';
+    });
+    // Show the selected content div
+    var selectedContent = document.getElementById('content' + divNum);
+    if (selectedContent) {
+      selectedContent.style.display = 'block';
+    }
+  }</script>
