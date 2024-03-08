@@ -4,6 +4,90 @@
         font-family: 'Josefin Sans', sans-serif;
         margin: 0;
     }
+    @media screen and (max-width: 600px){
+    .nav{
+        margin-bottom: 0px;
+        position: fixed;
+        padding: 2px;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: #fff;
+        justify-content: space-between;
+        text-align: center;
+        overflow: hidden;
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+        display: inline-flex;
+    }
+    .btn,.upload{
+        padding: 8px;
+        font-size: 24px;
+        background: transparent;
+        border: none;
+    }
+    .upload{
+        background-image: linear-gradient(to right, #f9d423 ,#ff4e50);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    .header{
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+    }
+    .icon{
+        width: 37px;
+        left: 10px;
+        position: absolute;
+        border-radius: 125px;
+    }
+    .text-animation {
+        display: inline-block;
+    }
+    .text {
+        left: 54px;
+        top: 18px;
+        font-size: 20px;
+        position: absolute;
+        display: none;
+    }
+    .visible {
+        display: inline-block;
+    }
+    .content{
+        display: none;
+    }
+    .upload-headtxt{
+        margin-top: 1.5%;
+        margin-left: 1.5%;
+    }
+    .upload-nav{
+        text-align: center;
+    }
+    .upload-btn{
+        margin-top: 13px;
+        padding: 4px;
+        display: inline-block;
+        width: 135px;
+        border: 1px solid;
+        border-image: linear-gradient(45deg, orange, purple)1;
+        text-decoration: none;
+    }
+    .hidden{
+        display: none;
+    }
+    .content-button{
+    padding: 8px;
+    margin-top: 175%;
+    text-align: center;
+    color: #FFF;
+    background: #000;
+    border-radius: 25px;
+    border: none;
+    }
+}
 </style>
 <script src="https://kit.fontawesome.com/8aa17a250d.js" crossorigin="anonymous"></script>
 <meta charset="utf-8">
@@ -22,22 +106,26 @@
   </div>
 </div>
 <div class="content" id="content1" style="display: block;">
-
 </div>
 <div class="content" id="content2">Content 2</div>
 <div class="content" id="content3">
-    <h3 class="upload-headtxt">Publish Your:-</h3>
-    <div class="upload-nav">
-    <a href="#" class="upload-btn">Post</a><br>
-    <a href="#" class="upload-btn">Video</a><br>
-    <a href="#" class="upload-btn">Game</a><br>
-    <a href="#" class="upload-btn">Tounament</a><br>
+    <div class="content-body">
+        <div id="div1">Community</div>
+        <div id="div2" class="hidden">This is div 2</div>
+        <div id="div3" class="hidden">This is div 3</div>
+        <div id="div4" class="hidden">This is div 4</div>
+    </div>
+    <div class="content-btn">
+    <button onclick="showItem(1)" class="content-button" style="margin-left: 12%;">Community</button>
+    <button onclick="showItem(2)" class="content-button">Video</button>
+    <button onclick="showItem(3)" class="content-button">Games</button>
+    <button onclick="showItem(4)" class="content-button">Tournament</button>
 </div>
 </div>
 <div class="content" id="content4">Content 4</div>
 <div class="content" id="content5">Content 5</div>
 <footer class="nav">
-    <button class="btn" onclick="showDiv(1)"><i class="fa-solid fa-house"></i></button>
+    <button class="btn" onclick="showDiv(1)"><i class="fa-solid fa-satellite"></i></button>
     <button class="btn" onclick="showDiv(2)"><i class="fa-solid fa-video"></i></button>
     <button class="upload" onclick="showDiv(3)"><i class="fa-solid fa-upload"></i></button>
     <button class="btn" onclick="showDiv(4)"><i class="fa-solid fa-gamepad"></i></button>
@@ -59,17 +147,26 @@
     }
   }
   showNextText();
-  const interval = setInterval(showNextText, 2000);});</script>
+  const interval = setInterval(showNextText, 2000);});
+</script>
 <script>
   function showDiv(divNum) {
-    // Hide all content divs
     var contents = document.querySelectorAll('.content');
     contents.forEach(function(content) {
       content.style.display = 'none';
     });
-    // Show the selected content div
     var selectedContent = document.getElementById('content' + divNum);
     if (selectedContent) {
       selectedContent.style.display = 'block';
     }
-  }</script>
+  }
+</script>
+
+<script>
+    function showItem(divNumber) {
+        for (let i = 1; i <= 4; i++) {
+            document.getElementById(`div${i}`).classList.add('hidden');
+        }
+        document.getElementById(`div${divNumber}`).classList.remove('hidden');
+    }
+</script>
