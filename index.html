@@ -1,172 +1,268 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap" rel="stylesheet">
 <style>
-    *{
-        padding: 0;
-        font-family: 'Josefin Sans', sans-serif;
-        margin: 0;
+    * {
+    padding: 0;
+    margin: 0;
+    background: #F4F4F4;
+    overflow-x: hidden;
+    font-family: 'Roboto';
+}
+.header {
+    margin-left: 25px;
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+}
+.menu {
+    background: #000;
+    height: 32px;
+    width: 32px;
+    border-radius: 125px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    cursor: pointer;
+}
+.menu-icon {
+    width: 20px;
+    background: transparent;
+}
+.head-text {
+    font-size: 23.3px;
+    font-family: "Tilt Neon", sans-serif;
+}
+.head-text::before {
+    content: '';
+    background: yellow;
+    width: 20px;
+}
+.bell-icon {
+    width: 30px;
+    cursor: pointer;
+}
+.slider {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #f0f0f0;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+.slider-content {
+    padding: 20px;
+    height: 95%;
+    background: #FFF;
+}
+#closeSlider {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+#closeSlider:hover {
+    background-color: #cc0000;
+}
+.search-box {
+    margin-left: 42px;
+    margin-top: 16px;
+    width: 260px;
+    padding: 8px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    background: #FFF;
+}
+.search-btn {
+    padding: 8px;
+    border-radius: 25px;
+    border: none;
+    background: #9ceff7;
+    cursor: pointer;
+    margin-top: 25px;
+    margin-left: 10px;
+}
+.next-icon {
+    width: 16px;
+    background: transparent;
+}
+.search-results {
+    margin-top: 20px;
+}
+.search-results a {
+    display: block;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: #333;
+}
+.search-results img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+@media only screen and (max-width: 600px) {
+    .bell-icon {
+        margin-left: 90px;
     }
-    @media screen and (max-width: 600px){
-    .nav{
-        margin-bottom: 0px;
-        position: fixed;
-        padding: 2px;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        color: #fff;
-        justify-content: space-between;
-        text-align: center;
-        overflow: hidden;
-        box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-        display: inline-flex;
+    .head-text {
+        margin-left: 90px;
     }
-    .btn,.upload{
-        padding: 8px;
-        font-size: 24px;
+    .close-icon {
+        width: 16px;
         background: transparent;
-        border: none;
     }
-    .upload{
-        background-image: linear-gradient(to right, #f9d423 ,#ff4e50);
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+    #closeSlider {
+        border-radius: 25px;
+        height: 30px;
+        width: 30px;
+        justify-content: center;
     }
-    .header{
-        box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-        height: 50px;
+    .search-results {
+        margin-top: 20px;
         display: flex;
-        align-items: center;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        margin-left: 50px;
     }
-    .icon{
-        width: 37px;
-        left: 10px;
-        position: absolute;
-        border-radius: 125px;
-    }
-    .text-animation {
-        display: inline-block;
-    }
-    .text {
-        left: 54px;
-        top: 18px;
-        font-size: 20px;
-        position: absolute;
-        display: none;
-    }
-    .visible {
-        display: inline-block;
-    }
-    .content{
-        display: none;
-    }
-    .upload-headtxt{
-        margin-top: 1.5%;
-        margin-left: 1.5%;
-    }
-    .upload-nav{
+    .search-results .search-result-item {
+        margin-right: 10px;
         text-align: center;
     }
-    .upload-btn{
-        margin-top: 13px;
-        padding: 4px;
-        display: inline-block;
-        width: 135px;
-        border: 1px solid;
-        border-image: linear-gradient(45deg, orange, purple)1;
-        text-decoration: none;
+    .search-results .search-result-item img {
+        display: block;
+        margin: 0 auto;
     }
-    .hidden{
-        display: none;
+    .search-results .search-result-item p {
+        margin-top: 5px;
+        font-size: 14px;
     }
-    .content-button{
-            padding: 8px;
-            margin-top: 155%;
-            text-align: center;
-            color: #FFF;
-            background: #000;
-            border-radius: 25px;
-            border: none;
+    .user-text{
+        margin-left: 50px;
+        margin-top: 10px;
     }
 }
 </style>
-<script src="https://kit.fontawesome.com/8aa17a250d.js" crossorigin="anonymous"></script>
-<meta charset="utf-8">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@350&display=swap" rel="stylesheet">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="style.css">
 <div class="header">
-    <img src="https://i.ibb.co/2S955BS/icon.png" class="icon" onclick="icon()">
-    <div class="text-animation">
-    <span class="text">Hello</span>
-    <span class="text">Dear</span>
-    <span class="text">Gamers!</span>
-  </div>
-</div>
-<div class="content" id="content1" style="display: block;">
-</div>
-<div class="content" id="content2">Content 2</div>
-<div class="content" id="content3">
-    <h3 style="margin-left: 10px; margin-top: 10px;">Publish Your:-</h3>
-    <div class="content-body">
-        <div id="div1">Community</div>
-        <div id="div2" class="hidden">This is div 2</div>
-        <div id="div3" class="hidden">This is div 3</div>
-        <div id="div4" class="hidden">This is div 4</div>
+    <div class="menu" id="sliderIcon">
+        <img src="menu-icon.svg" class="menu-icon">
     </div>
-    <div class="content-btn">
-    <button onclick="showItem(1)" class="content-button" style="margin-left: 12%;">Community</button>
-    <button onclick="showItem(2)" class="content-button">Video</button>
-    <button onclick="showItem(3)" class="content-button">Games</button>
-    <button onclick="showItem(4)" class="content-button">Tournament</button>
+    <div class="head">
+        <h4 class="head-text">YOSHP !</h4>
+    </div>
+    <div class="notify">
+        <img src="bell-icon.svg" class="bell-icon">
+    </div>
 </div>
+<div id="slider" class="slider">
+    <div class="slider-content">
+      <button id="closeSlider"><img src="close-icon.svg" class="close-icon"></button>
+      <p>This is the content of the slider.</p>
+    </div>
 </div>
-<div class="content" id="content4">Content 4</div>
-<div class="content" id="content5">Content 5</div>
-<footer class="nav">
-    <button class="btn" onclick="showDiv(1)"><i class="fa-solid fa-satellite"></i></button>
-    <button class="btn" onclick="showDiv(2)"><i class="fa-solid fa-video"></i></button>
-    <button class="upload" onclick="showDiv(3)"><i class="fa-solid fa-upload"></i></button>
-    <button class="btn" onclick="showDiv(4)"><i class="fa-solid fa-gamepad"></i></button>
-    <button class="btn" onclick="showDiv(5)"><i class="fa-solid fa-ranking-star"></i></button></footer>
+<div class="search">
+    <input type="text" class="search-box" id="searchBox">
+    <button class="search-btn"><img src="next-icon.svg" class="next-icon"></button>
+</div>
+<h3 class="user-text">User:</h3>
+<div class="search-results" id="searchResults"></div>
+<div class="social-links">
+    <h3 class="user-text">Our Social Links:</h3>
+</div>
 <script>
-    function icon(){
-        location.reload()
-    }
-    document.addEventListener("DOMContentLoaded", function() {
-  const texts = document.querySelectorAll(".text");
-  let index = 0;
+    document.addEventListener('DOMContentLoaded', function() {
+    const sliderIcon = document.getElementById('sliderIcon');
+    const slider = document.getElementById('slider');
+    const closeSliderBtn = document.getElementById('closeSlider');
+    const searchBox = document.getElementById('searchBox');
+    const searchResults = document.getElementById('searchResults');
 
-  function showNextText() {
-    texts.forEach(text => text.classList.remove("visible"));
-    texts[index].classList.add("visible");
-    index++;
-    if (index >= texts.length) {
-      index = 0; 
-    }
-  }
-  showNextText();
-  const interval = setInterval(showNextText, 2000);});
-</script>
-<script>
-  function showDiv(divNum) {
-    var contents = document.querySelectorAll('.content');
-    contents.forEach(function(content) {
-      content.style.display = 'none';
+    sliderIcon.addEventListener('click', function() {
+        slider.style.left = '0';
     });
-    var selectedContent = document.getElementById('content' + divNum);
-    if (selectedContent) {
-      selectedContent.style.display = 'block';
-    }
-  }
-</script>
 
-<script>
-    function showItem(divNumber) {
-        for (let i = 1; i <= 4; i++) {
-            document.getElementById(`div${i}`).classList.add('hidden');
-        }
-        document.getElementById(`div${divNumber}`).classList.remove('hidden');
+    closeSliderBtn.addEventListener('click', function() {
+        slider.style.left = '-250px';
+    });
+
+    // Initial search results data
+    let initialSearchResultsData = [
+        { name: 'Initial Result 1', image: 'https://via.placeholder.com/150', link: '#' },
+        { name: 'Initial Result 2', image: 'https://via.placeholder.com/150', link: '#' }
+    ];
+
+    // Function to shuffle search results data
+    function shuffleSearchResults() {
+        initialSearchResultsData = shuffleArray(initialSearchResultsData);
+        renderSearchResults(initialSearchResultsData);
     }
+
+    // Function to shuffle an array
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    // Render initial search results
+    shuffleSearchResults();
+    
+    // Shuffle search results every 10 seconds (adjust the interval as needed)
+    setInterval(shuffleSearchResults, 10000);
+
+    searchBox.addEventListener('input', function() {
+        const query = this.value.trim().toLowerCase();
+        if (query.length > 0) {
+            const searchResultsData = [
+                { name: 'Result 1', image: 'https://via.placeholder.com/150', link: '#' },
+                { name: 'Result 2', image: 'https://via.placeholder.com/150', link: '#' },
+                { name: 'Result 3', image: 'https://via.placeholder.com/150', link: '#' }
+            ];
+
+            const filteredResults = searchResultsData.filter(result => result.name.toLowerCase().includes(query));
+
+            renderSearchResults(filteredResults);
+        } else {
+            renderSearchResults(initialSearchResultsData); // Display shuffled initial search results if query is empty
+        }
+    });
+
+    function renderSearchResults(results) {
+        searchResults.innerHTML = ''; // Clear existing search results
+        if (results.length > 0) {
+            results.forEach(result => {
+                const resultContainer = document.createElement('div');
+                resultContainer.classList.add('search-result-item'); // Add your class here
+
+                const resultImage = document.createElement('img');
+                resultImage.src = result.image;
+                resultImage.alt = result.name;
+
+                const resultLink = document.createElement('a');
+                resultLink.href = result.link;
+                resultLink.appendChild(resultImage);
+
+                const resultName = document.createElement('p');
+                resultName.textContent = result.name;
+
+                resultContainer.appendChild(resultLink);
+                resultContainer.appendChild(resultName);
+                searchResults.appendChild(resultContainer);
+            });
+        } else {
+            const noResultsMessage = document.createElement('p');
+            noResultsMessage.textContent = 'No results found.';
+            searchResults.appendChild(noResultsMessage);
+        }
+    }
+});
 </script>
